@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Joke Generator</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #00b4db, #0083b0);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .joke-container {
+      background-color: white;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      max-width: 600px;
+      width: 90%;
+    }
+
+    h1 {
+      color: #0083b0;
+      margin-bottom: 20px;
+    }
+
+    #joke {
+      font-size: 1.3rem;
+      margin-bottom: 30px;
+      color: #333;
+      transition: opacity 0.3s ease;
+    }
+
+    button {
+      background-color: #00b4db;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #007ca3;
+    }
+
+    @media (max-width: 600px) {
+      #joke {
+        font-size: 1.1rem;
+      }
+
+      button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="joke-container">
+    <h1>😂 Random Joke Generator</h1>
+    <div id="joke">Click the button to hear a joke!</div>
+    <button onclick="generateJoke()">Tell me a joke</button>
+  </div>
+
+  <script>
+    const jokes = [
+      "Why don't scientists trust atoms? Because they make up everything!",
+      "Why was the math book sad? Because it had too many problems.",
+      "I told my computer I needed a break, and it said 'No problem — I'll go to sleep.'",
+      "What do you call fake spaghetti? An impasta!",
+      "Parallel lines have so much in common… it’s a shame they’ll never meet.",
+      "Why don’t skeletons fight each other? They don’t have the guts.",
+      "What did the ocean say to the beach? Nothing, it just waved.",
+      "Why did the scarecrow win an award? Because he was outstanding in his field!",
+      "I used to play piano by ear, but now I use my hands.",
+      "What’s orange and sounds like a parrot? A carrot.",
+      "Why did the golfer bring two pairs of pants? In case he got a hole in one.",
+      "I would tell you a construction joke, but I’m still working on it.",
+      "What do you call a can opener that doesn’t work? A can't opener.",
+      "I'm reading a book on anti-gravity. It's impossible to put down!"
+    ];
+
+    function generateJoke() {
+      const jokeEl = document.getElementById("joke");
+      const randomIndex = Math.floor(Math.random() * jokes.length);
+      jokeEl.style.opacity = 0; // fade out
+
+      setTimeout(() => {
+        jokeEl.innerText = jokes[randomIndex];
+        jokeEl.style.opacity = 1; // fade in
+      }, 200);
+    }
+  </script>
+
+</body>
+</html>
+
+
